@@ -1,0 +1,25 @@
+<div>
+    <div class="container-button mb-4">
+        <ul class="nav nav-underline">
+            <li class="nav-item">
+                <button class="nav-link p-2" aria-current="page" (click)="filterTodos('all')">All</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link p-2" (click)="filterTodos('notDone')">Active</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link p-2" (click)="filterTodos('done')">Completed</button>
+            </li>
+        </ul>
+    </div>
+    <div class="container-todos">
+        <div class="form-check" *ngFor="let todo of todosFilter">
+            <input (change)="isCheckedTodo(todo)" class="form-check-input" type="checkbox" value=' {{ todo.id }} ' id='{{ todo.id }}' [checked]="todo.done">
+            <label class="form-check-label mb-2" for="flexCheckDefault">
+                {{ todo.title }} : {{ todo.description }}
+            </label>
+        </div>
+    </div>
+</div>
+
+
